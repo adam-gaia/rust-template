@@ -12,9 +12,15 @@ concurrency:
   group: "${{ github.workflow }}-${{ github.ref }}"
   cancel-in-progress: true
 jobs:
-  pre-commit:
+  lints:
     permissions:
       contents: read
     runs-on: ubuntu-latest
     steps:
-      - run: devenv test
+      - uses: actions/checkout@v4
+      - uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
+      - uses: nicknovitski/nix-develop@v1
+        with:
+          arguments: --impurae
+      - run: pre-commit
