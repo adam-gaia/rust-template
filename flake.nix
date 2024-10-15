@@ -10,7 +10,8 @@
     };
 
     devenv = {
-      url = "github:cachix/devenv";
+      # Using my fork until https://github.com/cachix/devenv/pull/1524 goes in
+      url = "github:adam-gaia/devenv";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
