@@ -22,5 +22,5 @@ jobs:
       - uses: DeterminateSystems/magic-nix-cache-action@main
       - uses: nicknovitski/nix-develop@v1
         with:
-          arguments: --impurae
+          arguments: --impure
       - run: pre-commit
